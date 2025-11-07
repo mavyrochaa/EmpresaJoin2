@@ -73,6 +73,30 @@ from funcionario func
 left join dependente dep
 on func.id = dep.id_funcionario;
 
+#quarta atividade
+select d.nome as nome_departamento, avg(f.salario) as media_salarial
+from departamento d
+inner join funcionario f
+on d.id = f.id_departamento
+group by d.nome;
+
+#listar os departamentos q possuem e nao possuem funcionarios
+select d.nome as nome_departamento, f.nome as nome_funcionario
+from departamento d
+left join funcionario f
+on d.id = f.id_departamento;
+
+#quanto a empresa gasta por mes, soma de todos os salarios
+select sum(salario) as total_salarios
+from funcionario;
+
+#quanto custa cada departamento
+select d.nome as nome_departamento, sum(f.salario) as custo_por_depto
+from departamento d
+inner join funcionario f
+on d.id = f.id_departamento
+group by d.nome;
+
 
 
 
